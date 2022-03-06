@@ -1,0 +1,78 @@
+import javax.swing.JOptionPane;
+public class Main {
+ 
+	
+	public static void main(String[] args) {
+		
+		JOptionPane.showMessageDialog(null, "TYT net hesaplama sihirbazına hoş geldin!");
+		String ders = JOptionPane.showInputDialog("Hangi dersin netini hesaplamak istersin? (türkçe, sosyal, matematik,fen,genel)");
+		
+		if (ders.equals("genel")) {
+			
+			int türkçedoğru = Integer.parseInt(JOptionPane.showInputDialog("Türkçe'den kaç doğrun var?"));
+			double türkçeyanlış = Double.parseDouble(JOptionPane.showInputDialog("Türkçe'den kaç yanlışın var?"));
+			double turkcenet = türkçedoğru - türkçeyanlış/4;
+			JOptionPane.showMessageDialog(null,"Türkçe netin: " +turkcenet+ "\nDevam etmek için Enter'a basın." );
+			
+			
+			int sosdoğru = Integer.parseInt(JOptionPane.showInputDialog("Sosyal Bilimler'den kaç doğrun var?"));
+			double sosyanlış = Double.parseDouble(JOptionPane.showInputDialog("Sosyal Bilimler'den kaç doğrun var?"));
+			double sosnet = sosdoğru - sosyanlış/4;
+			JOptionPane.showMessageDialog(null, "Sosyal Bilimler netin :"+sosnet+"\nDevam etmek için Enter'a basın.");
+			
+			int matdoğru = Integer.parseInt(JOptionPane.showInputDialog("Matematikten kaç doğrun var?"));
+			double matyanlış = Double.parseDouble(JOptionPane.showInputDialog("Matematikten kaç yanlışın var?"));
+			double matnet= matdoğru - matyanlış/4;
+			JOptionPane.showMessageDialog(null, "Matematik netin: "+matnet);
+			
+			int fendoğru = Integer.parseInt(JOptionPane.showInputDialog("Fen Bilimleri'nden kaç doğrun var?"));
+			double fenyanlış = Double.parseDouble(JOptionPane.showInputDialog("Fen Bilimleri'nden kaç yanlışın var?"));
+			double fennet= fendoğru - fenyanlış/4;
+			JOptionPane.showMessageDialog(null, "Fen Bilimleri netin: "+fennet);
+			
+			double genelnet= turkcenet+sosnet+matnet+fennet;
+			double toplamyanlış= türkçeyanlış + fenyanlış + matyanlış + sosyanlış;
+			int toplamdoğru= matdoğru + fendoğru+ sosdoğru+ türkçedoğru;
+			
+			JOptionPane.showMessageDialog(null, "Genel netin: "+genelnet+"\n\nTürkçe netin: "+turkcenet+"\nSosyal Bilimler netin :"+sosnet+"\nMatematik netin: "+matnet+"\nFen Bilimleri netin: "+fennet+"\n\nToplam yanlış: "+toplamyanlış+"\nToplam doğru sayın: "+ toplamdoğru);
+			
+			
+		}	
+		else if(ders.equals("türkçe")) {
+			
+			int türkçedoğru = Integer.parseInt(JOptionPane.showInputDialog("Türkçe'den kaç doğrun var?"));
+			double türkçeyanlış = Double.parseDouble(JOptionPane.showInputDialog("Türkçe'den kaç yanlışın var?"));
+			double turkcenet = türkçedoğru - türkçeyanlış/4;
+			JOptionPane.showMessageDialog(null,"Türkçe netin: " +turkcenet );
+		}
+		
+		else if(ders.equals("sosyal")) {
+			int sosdoğru = Integer.parseInt(JOptionPane.showInputDialog("Sosyal Bilimler'den kaç doğrun var?"));
+			double sosyanlış = Double.parseDouble(JOptionPane.showInputDialog("Sosyal Bilimler'den kaç doğrun var?"));
+			double sosnet = sosdoğru - sosyanlış/4;
+			JOptionPane.showMessageDialog(null, "Sosyal Bilimler netin :"+sosnet+"\nDevam etmek için Enter'a basın.");
+			
+		}
+		else if(ders.equals("matematik")) {
+			int matdoğru = Integer.parseInt(JOptionPane.showInputDialog("Matematikten kaç doğrun var?"));
+			double matyanlış = Double.parseDouble(JOptionPane.showInputDialog("Matematikten kaç yanlışın var?"));
+			double matnet= matdoğru - matyanlış/4;
+			JOptionPane.showMessageDialog(null, "Matematik netin: "+matnet);
+		}
+		else if (ders.equals("fen")) {
+			int fendoğru = Integer.parseInt(JOptionPane.showInputDialog("Fen Bilimleri'nden kaç doğrun var?"));
+			double fenyanlış = Double.parseDouble(JOptionPane.showInputDialog("Fen Bilimleri'nden kaç yanlışın var?"));
+			double fennet= fendoğru - fenyanlış/4;
+			JOptionPane.showMessageDialog(null, "Fen Bilimleri netin: "+fennet);
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Lütfen sadece parantez içindeki verileri girin!");
+		}
+		
+		
+		
+		
+		
+		
+	}
+}
