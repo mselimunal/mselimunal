@@ -1,0 +1,68 @@
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+
+public class şifre {
+
+	Scanner scanner = new Scanner(System.in);
+	String şifrekontrol;
+	String kullanıcıadı;
+	String password;
+	String mesaj;
+	boolean giriş;
+	void kayıt() throws InterruptedException {
+
+		System.out.print("Kullanıcı adınızı belirleyin: ");
+		kullanıcıadı=scanner.next();
+		System.out.println("Şifreniz minimum 8 karakter olmalıdır.");
+		uyu(1);
+		System.out.print("Şifre ayarlayın: ");
+		password= scanner.next();
+		if (password.length()<=7) {
+			uyu(1);
+			mesaj="Şifreniz istenilen uzunlukta değil. Lütfen bir daha deneyin: ";
+			System.out.print(mesaj);
+			while (true) {
+				password=scanner.next();
+				if (password.length()<8) {
+					uyu(1);
+					mesaj= "Şifreniz hala istenilen uzunlukta değil. Lütfen bir daha deneyin: ";
+					System.out.print(mesaj);
+					continue;
+				}
+				else {
+					uyu(1);
+					System.out.println("Kullanıcı adı ve şifreniz kaydedilmiştir. ");
+					System.out.println("Hoşgeldin "+kullanıcıadı+"!");
+					break;
+				}
+			}
+			
+		}
+		else {
+			System.out.println("Kullanıcı adı ve şifreniz kaydedilmiştir. ");
+			System.out.println("Hoşgeldin "+kullanıcıadı+"!");
+		}
+	}
+	void çağır() {
+		System.out.println("Şifreniz: "+password);
+	}
+	boolean kontrol() {
+		System.out.print("Lütfen şifrenizi girin: ");
+		şifrekontrol= scanner.next();
+		if (şifrekontrol.equals(password)) {
+			giriş= false;
+			return false;
+		}
+		else {
+			giriş= true;
+			return true;
+		}
+	}
+
+	static void uyu(int k) throws InterruptedException {
+		TimeUnit.SECONDS.sleep(k);
+	}
+	
+
+}
