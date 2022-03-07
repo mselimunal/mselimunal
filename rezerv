@@ -1,0 +1,109 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+public class Main {
+	
+	
+
+
+	static void print(String s) {
+		System.out.println(s);
+	}
+	
+	static void print(int a) {
+		System.out.println(a);
+	}
+	
+	static void uyu(int k) throws InterruptedException {
+		TimeUnit.SECONDS.sleep(k);
+	}
+	
+	
+	
+	public static void main(String[] args) throws InterruptedException  {
+	
+		şifre şifre = new şifre();
+		String rezerverestoran= "";
+		String makisaatseçimi;
+		String thenorthshieldsaatseçimi;
+		String friendssaatseçimi;
+		int rezerverestoranint=0;
+		rezerv rezerv = new rezerv(0);
+		rezerv.set();
+		Scanner scanner= new Scanner(System.in);
+		int menütercihi;
+		print("REZERV'e hoş geldiniz! Başlamak için önce kullanıcı adı ve şifre belirleyiniz.");
+		uyu(1);
+		şifre.kayıt();
+		uyu(1);
+		boolean anawhile = true;
+		while(anawhile) {
+			System.out.print("Kullanıcı menüsüne geçmek için 1'e, restoran menüsüne geçmek için 2'ye, şifre işlemleri için 3'e basın: ");
+			menütercihi=scanner.nextInt();
+			if (menütercihi==1) {
+				print("Kullanıcı menüsüne hoş geldin "+şifre.kullanıcıadı+".");
+				uyu(1);
+				print("Aşağıdaki restoranlardan birinin ismini yazıp rezervasyon işlemine başlayabilirsin");
+				uyu(1);
+				
+				
+				do {
+					
+					rezerv.say();
+					
+					System.out.print("\nRestoran ismi: ");
+					
+					rezerverestoran= scanner.next();
+					rezerverestoran= rezerverestoran.toLowerCase();
+					rezerverestoran = rezerverestoran.replaceAll("\\s+", "");
+					if (rezerverestoran.equals("1")) {
+						rezerv maki = new rezerv(1);
+						maki.müsait();
+						print("Lütfen bir saat seç (19,20 gibi): ");
+						makisaatseçimi= scanner.next();
+						while (şifre.kontrol()) {
+							if (şifre.giriş==true) {
+								print("Şifreniz yanlış.");
+							}
+							else {
+								
+							}
+						}
+						print("bafii");
+						maki.yedi="19.00 (DOLU)";
+						print(maki.yedi);
+						print("Maki adlı restoran saat 19.00'a rezervasyonunuz başarıyla yapıldı. Ana menüye yönlendiriliyorsunuz.");
+						uyu(1);
+						print("...\n");
+						
+						break;
+					}
+					else if (rezerverestoran.equals("2")) {
+						rezerv thenorthshield = new rezerv(2);
+						break;
+					}
+					else if(rezerverestoran.equals("3")) {
+						rezerv friends =new rezerv(3);
+						break;
+					}
+					else {
+						print("\nLütfen sadece ekrandaki restorant isimlerini gir.");
+						continue;
+					}
+					
+					
+				} while (true);
+				
+				
+				
+				
+				
+				
+				
+				
+			}
+		}
+		
+	}
+}
