@@ -1,0 +1,556 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+public class Main {
+	
+	
+
+
+	static void print(String s) {
+		System.out.println(s);
+	}
+	
+	static void print(int a) {
+		System.out.println(a);
+	}
+	
+	static void uyu(int k) throws InterruptedException {
+		TimeUnit.SECONDS.sleep(k);
+	}
+	
+	
+	
+	
+	
+	public static void main(String[] args) throws InterruptedException  {
+		
+		Şifre şifre= new Şifre();
+		String şifretercih;
+		String friendsrestorantercih;
+		boolean l= true;
+		String thenorthshieldsrestorantercihi;
+		String makiisimdeğiş= "maki";
+		String makirestorantercih;
+		String restorankodu;
+		int restoranmenüsü;
+		String restorantercih;
+		ArrayList <String > restoranlar = new ArrayList<>();
+		restoranlar.add("Maki");
+		restoranlar.add("The North Place");
+		restoranlar.add("Friends");
+		Scanner scanner = new Scanner(System.in);
+		String menütercih;
+		Maki maki = new Maki();
+		Friends friends = new Friends();
+		Thenorthplace thenorthplace = new Thenorthplace();
+		friends.set();
+		thenorthplace.set();
+		maki.set();
+		print("REZERV'e hoş geldniniz. Lütfen önce kayıt olun.");
+		şifre.kayıt();
+		while (true) {
+			print("Kullanıcı menüsüne girmek için 1'e, restoran sahibiyseniz 2'ye, şifre işlemleriniz için 3'e, çıkış yapmak için 4'e basın.");
+			menütercih= scanner.nextLine();
+			if (menütercih.equals("1")) {
+				print("Kullanıcı menüsüne hoş geldiniz. Lütfen rezervasyon yapmak istediğiniz restoranın ismini yazın: ");
+				for (String i: restoranlar) {
+					print(i);
+				}
+				
+				while (true) {
+					System.out.print("Restoran ismi: ");
+					restorantercih= scanner.nextLine();
+					restorantercih=restorantercih.toLowerCase();
+					switch(restorantercih) {
+					case "maki":
+						System.out.println("Lütfen saatlerin müsaitlik durumuna bakın ve şifrenizi girin.");
+						maki.say();
+						şifre.kontrol();
+						maki.rezervasyon();
+						uyu(1);
+						print("Menüye yönlendiriliyorsunuz..");
+						uyu(1);
+						break;
+					case "friends":
+						System.out.println("Lütfen saatlerin müsaitlik durumuna bakın ve şifrenizi girin.");
+						friends.say();
+						şifre.kontrol();
+						friends.rezervasyon();
+						uyu(1);
+						print("Menüye yönlendiriliyorsunuz..");
+						uyu(1);
+						break;
+						
+					case "the north place":
+						System.out.println("Lütfen saatlerin müsaitlik durumuna bakın ve şifrenizi girin.");
+						thenorthplace.say();
+						şifre.kontrol();
+						thenorthplace.rezervasyon();
+						uyu(1);
+						print("Menüye yönlendiriliyorsunuz..");
+						uyu(1);
+						break;
+					default:
+						print("Lütfen sadece listedeki restoranları girin.");
+						continue;
+						}
+					break;
+					
+					
+				}
+				
+				
+				
+					
+			}
+			else if(menütercih.equals("2")) {
+				print("Restoran menüsüne hoş geldin "+şifre.kullanıcıadı+"!");
+				print("Lütfen restoran kodunu gir!");
+				while (true) {
+					restorankodu= scanner.nextLine();
+					if (restorankodu.equals("maki")) {
+						maki.say();
+						maki.saatdeğiş();
+						break;
+					}
+					else if(restorankodu.equals("the north place")) {
+						thenorthplace.say();
+						thenorthplace.saatdeğiş();
+						break;
+					}
+					else if (restorankodu.equals("friends")) {
+						friends.say();
+						friends.saatdeğiş();
+						break;
+					}
+					else {
+						print("Yanlış restoran kodu, lütfen doğru bir kod gir: ");
+						continue;
+					}
+
+				}
+										
+				
+			}
+			else if (menütercih.equals("3")) {
+				print("Şifre işlemlerine hoş geldiniz.");
+				print("Kullanıcı adınızdan şifre öğrenmek için 1'e, şifre değiştirmek için 2'ye, yeniden kaydolmak için 3'e basın.");
+				while (true) {
+					şifretercih=scanner.nextLine();
+					if (şifretercih.equals("1")) {
+						şifre.çağır();
+						break;
+					}
+					else if(şifretercih.equals("2")) {
+						şifre.değiş();
+						break;
+					}
+					else if (şifretercih.equals("3")) {
+						şifre.kayıt();
+						break;
+					}
+					else {
+						print("Geçersiz bir sayı girdiniz. Lütfen söylenen sayılardan birini girin: ");
+						continue;
+					}
+				}
+			}
+			else if(menütercih.equals("4")) {
+				print("Çıkış yapılıyor...");
+				uyu(2);
+				print("Esmayı çok seviyorum..");
+				uyu(1);
+				break;
+			}
+			else {
+				print("Geçersiz bir sayı girdiniz. Bir daha deneyin");
+				continue;
+			}
+				
+				
+				
+			}
+		}
+		
+		 
+		
+	}
+
+
+
+class Maki {
+	String saat;
+	String saatekle;
+	String saatçıkar;
+	String saatekleçıkar;
+	Scanner scanner = new Scanner(System.in);
+	ArrayList <String> saatler = new ArrayList<>();
+	int a;
+	ArrayList <String> dolusaatler = new ArrayList<>();
+	
+	void set() {
+		saatler.add("19.00");
+		saatler.add("20.00");
+		saatler.add("21.00");
+		saatler.add("22.00");
+	}
+	void say() {
+		
+		for (String i: saatler) {
+			System.out.println(i);
+		}
+	}
+	void rezervasyon(){
+		System.out.println("Lütfen bir saat seçin ve listede yazan şekliyle girip (19.00 vb.) enter'a basın");
+
+		while (true) {
+			System.out.print("\nHangi saat (Çıkmak için ç yazıp enter'a basın): ");
+			saat= scanner.nextLine();
+			if (dolusaatler.contains(saat)) {
+				System.out.println("Rezervasyon yapmaya çalıştığınız saat doludur. Lüfen başka bir saat deneyiniz.");
+				continue;
+			}
+			else if(saat.equals("ç")) {
+				System.out.println("Rezervasyondan çıkılıyor..");
+				break;
+			}
+			else {
+				if (saatler.contains(saat)) {
+					a= saatler.indexOf(saat);
+					saatler.set(a, saat+"(DOLU)");
+					dolusaatler.add(saat);
+					System.out.println("Rezervasyonunuz başarılı bir şekilde saat "+saat+"'e yapılmıştır.");
+					break;
+				}
+				else {
+					System.out.println("Lütfen sadece listedeki saatleri giriniz");
+					continue;
+				}
+			}
+			
+		}
+	}
+	void saatdeğiş() {
+		System.out.print("Saat eklemek için 1'e, saat çıkarmak için 2'ye basın.");
+		
+		while (true) {
+			saatekleçıkar=scanner.nextLine();
+			if (saatekleçıkar.equals("1")) {
+				System.out.print("Lütfen eklemek istediğiniz saati xx.xx(23.00 gibi) formatında girin.");
+				saatekle= scanner.nextLine();
+				saatler.add(saatekle);
+				System.out.println("Eklediğiniz saat başarıyla restoranınıza işlendi");
+				break;
+				
+				
+			}
+			else if (saatekleçıkar.equals("2")) {
+				System.out.print("Lütfen çıkarmak istediğiniz saati listedeki gibi (19.00 vb) yazın: ");
+				
+				while (true) {
+					saatçıkar = scanner.nextLine();
+					if (saatler.contains(saatçıkar)) {
+						saatler.remove(saatçıkar);
+						System.out.println(saatçıkar+" başarıyla listeden çıkarıldı.");
+						break;
+					}
+					else {
+						System.out.println("Girdiğiniz saat restoranınızın listesinde yok. Lütfen listede ola bir saat girin");
+						continue;
+					}
+				}
+				break;
+			}
+			else {
+				System.out.println("Lütfen sadece 1 veya 2 girin.");
+				continue;
+			}
+		}
+	}
+}
+
+
+
+class Thenorthplace {
+
+	String saat;
+	String saatekle;
+	String saatçıkar;
+	String saatekleçıkar;
+	Scanner scanner = new Scanner(System.in);
+	ArrayList <String> saatler = new ArrayList<>();
+	int a;
+	ArrayList <String> dolusaatler = new ArrayList<>();
+	
+	void set() {
+		saatler.add("19.00");
+		saatler.add("20.00");
+		saatler.add("21.00");
+		saatler.add("22.00");
+	}
+	void say() {
+		
+		for (String i: saatler) {
+			System.out.println(i);
+		}
+	}
+	void rezervasyon(){
+		System.out.println("Lütfen bir saat seçin ve listede yazan şekliyle girip (19.00 vb.) enter'a basın");
+
+		while (true) {
+			System.out.print("\nHangi saat (Çıkmak için ç yazıp enter'a basın): ");
+			saat= scanner.nextLine();
+			if (dolusaatler.contains(saat)) {
+				System.out.println("Rezervasyon yapmaya çalıştığınız saat doludur. Lüfen başka bir saat deneyiniz.");
+				continue;
+			}
+			else if(saat.equals("ç")) {
+				System.out.println("Rezervasyondan çıkılıyor..");
+				break;
+			}
+			else {
+				if (saatler.contains(saat)) {
+					a= saatler.indexOf(saat);
+					saatler.set(a, saat+"(DOLU)");
+					dolusaatler.add(saat);
+					System.out.println("Rezervasyonunuz başarılı bir şekilde saat "+saat+"'e yapılmıştır.");
+					break;
+				}
+				else {
+					System.out.println("Lütfen sadece listedeki saatleri giriniz");
+					continue;
+				}
+			}
+			
+		}
+	}
+
+	void saatdeğiş() {
+		System.out.print("Saat eklemek için 1'e, saat çıkarmak için 2'ye basın.");
+		
+		while (true) {
+			saatekleçıkar=scanner.nextLine();
+			if (saatekleçıkar.equals("1")) {
+				System.out.print("Lütfen eklemek istediğiniz saati xx.xx(23.00 gibi) formatında girin.");
+				saatekle= scanner.nextLine();
+				saatler.add(saatekle);
+				System.out.println("Eklediğiniz saat başarıyla restoranınıza işlendi");
+				break;
+				
+				
+			}
+			else if (saatekleçıkar.equals("2")) {
+				System.out.print("Lütfen çıkarmak istediğiniz saati listedeki gibi (19.00 vb) yazın: ");
+				
+				while (true) {
+					saatçıkar = scanner.nextLine();
+					if (saatler.contains(saatçıkar)) {
+						saatler.remove(saatçıkar);
+						System.out.println(saatçıkar+" başarıyla listeden çıkarıldı.");
+						break;
+					}
+					else {
+						System.out.println("Girdiğiniz saat restoranınızın listesinde yok. Lütfen listede ola bir saat girin");
+						continue;
+					}
+				}
+				break;
+			}
+			else {
+				System.out.println("Lütfen sadece 1 veya 2 girin.");
+				continue;
+			}
+		}
+	}
+}
+
+
+class Friends {
+	String saat;
+	String saatekle;
+	String saatçıkar;
+	String saatekleçıkar;
+	Scanner scanner = new Scanner(System.in);
+	ArrayList <String> saatler = new ArrayList<>();
+	int a;
+	ArrayList <String> dolusaatler = new ArrayList<>();
+	
+	void set() {
+		saatler.add("19.00");
+		saatler.add("20.00");
+		saatler.add("21.00");
+		saatler.add("22.00");
+	}
+	void say() {
+		
+		for (String i: saatler) {
+			System.out.println(i);
+		}
+	}
+	void rezervasyon(){
+		System.out.println("Lütfen bir saat seçin ve listede yazan şekliyle girip (19.00 vb.) enter'a basın");
+
+		while (true) {
+			System.out.print("\nHangi saat (Çıkmak için ç yazıp enter'a basın): ");
+			saat= scanner.nextLine();
+			if (dolusaatler.contains(saat)) {
+				System.out.println("Rezervasyon yapmaya çalıştığınız saat doludur. Lüfen başka bir saat deneyiniz.");
+				continue;
+			}
+			else if(saat.equals("ç")) {
+				System.out.println("Rezervasyondan çıkılıyor..");
+				break;
+			}
+			else {
+				if (saatler.contains(saat)) {
+					a= saatler.indexOf(saat);
+					saatler.set(a, saat+"(DOLU)");
+					dolusaatler.add(saat);
+					System.out.println("Rezervasyonunuz başarılı bir şekilde saat "+saat+"'e yapılmıştır.");
+					break;
+				}
+				else {
+					System.out.println("Lütfen sadece listedeki saatleri giriniz");
+					continue;
+				}
+			}
+			
+		}
+	}
+	
+	void saatdeğiş() {
+		System.out.print("Saat eklemek için 1'e, saat çıkarmak için 2'ye basın.");
+		
+		while (true) {
+			saatekleçıkar=scanner.nextLine();
+			if (saatekleçıkar.equals("1")) {
+				System.out.print("Lütfen eklemek istediğiniz saati xx.xx(23.00 gibi) formatında girin.");
+				saatekle= scanner.nextLine();
+				saatler.add(saatekle);
+				System.out.println("Eklediğiniz saat başarıyla restoranınıza işlendi");
+				break;
+				
+				
+			}
+			else if (saatekleçıkar.equals("2")) {
+				System.out.print("Lütfen çıkarmak istediğiniz saati listedeki gibi (19.00 vb) yazın: ");
+				
+				while (true) {
+					saatçıkar = scanner.nextLine();
+					if (saatler.contains(saatçıkar)) {
+						saatler.remove(saatçıkar);
+						System.out.println(saatçıkar+" başarıyla listeden çıkarıldı.");
+						break;
+					}
+					else {
+						System.out.println("Girdiğiniz saat restoranınızın listesinde yok. Lütfen listede ola bir saat girin");
+						continue;
+					}
+				}
+				break;
+			}
+			else {
+				System.out.println("Lütfen sadece 1 veya 2 girin.");
+				continue;
+			}
+		}
+	}
+}
+
+
+class Şifre{
+	String şifre;
+	String kullanıcıadıinput;
+	String şifredeğiş;
+	String yenişifre;
+	String şifrekontrol;
+	String kullanıcıadı;
+	Scanner scanner= new Scanner(System.in);
+	void kayıt () {
+		System.out.print("Lütfen kullanıcı adınızı girin: ");
+		kullanıcıadı= scanner.nextLine();
+		System.out.println("Şifreniz minimum 6 karakter olmalıdır.");
+		System.out.print("Lütfen şifrenizi giriniz: ");
+		
+		while (true) {
+			şifre= scanner.nextLine();
+			if (şifre.length()<6) {
+				System.out.print("Şifreniz 6 karakterden kısa. Lütfen bir daha deneyin: ");
+				continue;
+			}
+			else{
+				System.out.println("Kullanıcı adınız ve şifreniz kaydedildi.\nHoşgeldin "+kullanıcıadı+"!");
+				break;
+			}
+		}
+		
+		
+	}
+	void çağır() {
+		System.out.print("Lütfen kullanıcı adınızı giriniz: ");
+		while (true) {
+			kullanıcıadıinput= scanner.nextLine();
+			if (kullanıcıadıinput.equals(kullanıcıadı)) {
+				System.out.println("Şifreniz: " +şifre);
+				break;
+			}
+			else {
+				System.out.print("Kullanıcı adınız doğru değil, lütfen kullanıcı adınızı bir daha girin: ");
+				continue;
+			}
+		}
+		
+	}
+	void kontrol() {
+		System.out.print("Lütfen şifrenizi giriniz: ");
+		
+		while (true) {
+			şifrekontrol = scanner.nextLine();
+			if (şifrekontrol.equals(şifre)) {
+				System.out.println("Şifreniz doğru.");
+				break;
+			}
+			else {
+				System.out.print("Yanlış şifre. Lütfen bir daha deneyin: ");
+				continue;
+			}
+		}
+		
+	}
+	void değiş() {
+		System.out.print("Lütfen eski şifrenizi girin: ");
+		
+		while (true) {
+			şifredeğiş= scanner.nextLine();
+			if (şifredeğiş.equals(şifre)) {
+				System.out.print("Lütfen yeni şifrenizi girin: ");
+				
+				while (true) {
+					yenişifre = scanner.nextLine();
+					if (yenişifre.length()<6) {
+						System.out.print("Şifreniz 6 karakterden kısa. Lütfen bir daha deneyin: ");
+						continue;
+					}
+					else if (yenişifre.equals(şifre)) {
+						System.out.print("Yeni şifreniz eskisiyle aynı olamaz. Lütfen bir daha deneyin: ");
+						continue;
+					}
+					else{
+						break;
+					}
+				}
+				şifre=yenişifre;
+				System.out.println("Şifreniz başarıyla "+şifre+" olarak değiştirildi.");
+				break;
+			}
+			else {
+				System.out.print("Eski şifrenizi yanlış girdiniz. Lütfen bir daha deneyin: ");
+				continue;
+			}
+		}
+		
+	}
+	
+
+}
