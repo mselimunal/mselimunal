@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @mselimunal
 - 👀 I’m interested in coding and app development.
-- 🌱 I’m currently learning java
+- 🌱 I’m currently learning php and r
 - 📫 mustafaselimunal@aol.com
 
 <!---
